@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="tictactoe.css">
+</head>
+<body>
+    <div id="container">
+        <h1>TIC-TAC-TOE</h1>
+        <div id="container1">
+            <h3>Players should enter there name</h3>
+            <div id="input">
+                <input type="text" name="player1" id="player1"> <br>
+                <input type="text" name="player2" id="player2"> 
+            </div>
+            <div id="playdiv">
+                <button id="play" onclick="welcome()">PLAY</button>
+            </div>
+        </div>
+        <h4 id="welcomenote">Welcome enter your name to continue with the game</h4>
+        <p id="goodluck">Goodluck</p>
+
+<!-- playing buttons -->
+        <div id="buttondiv">
+            <button id="one" onclick="button(event)"></button>
+            <button id="two" onclick="button(event)"></button>
+            <button id="three" onclick="button(event)"></button> 
+        <br> 
+            <button id="four" onclick="button(event)"></button>
+            <button id="five" onclick="button(event)"></button>
+            <button id="six" onclick="button(event)"></button> 
+        <br>
+            <button id="seven" onclick="button(event)"></button>
+            <button id="eight" onclick="button(event)"></button>
+            <button id="nine" onclick="button(event)"></button>
+        </div>
+<!-- play result  -->
+        <div id="playresult">
+            <span id="play1">Player1</span>
+            <button id="resplay1">0</button>
+            <button id="resplay2">0</button>
+            <span id="play2">Player2</span>
+            <p id="resulter">RESULT</p>
+        </div>
+<!-- end button -->
+        <div id="endbutton">
+            <button id="end" onclick="end()">END</button>
+        </div>
+    </div>
+    
+
+    <script type="text/javascript">
+// maximum length for players name        
+        player1.maxLength = 8;
+        player2.maxLength = 8;
+
+        const welcome = ()=> {
+// play button
+            if (play.innerText == "PLAY") {
+                welcomenote.innerText = player1.value + " and " + player2.value + " game";
+                goodluck.innerText = player1.value + " you have X, you are the next to play";
+                play1.innerText = player1.value;
+                play2.innerText = player2.value;
+                play.innerText = "REPLAY";
+            }
+
+// replay button
+            else if (play.innerText == "REPLAY") {
+                replayer();
+                if (goodluck.innerText !==  "Press 'Replay' to play again or Press 'End' to end it all" && goodluck.innerText == player1.value + " you have X, you are the next to play" || goodluck.innerText == player2.value + " you have O, you are the next to play" && resulter.innerText == player1.value + " you are the latest winner" || player2.value + " you are the latest winner") {
+                    buttonFalse();
+                };
+                if (goodluck.innerText ==  "Press 'Replay' to play again or Press 'End' to end it all" && resulter.innerText == "It's a draw") {
+                    goodluck.innerText = player1.value + " you have X, you are the next to play";
+                    resulter.innerText = "It's a draw the last time"
+                };
+                if (resulter.innerText == "RESULT") {
+                    goodluck.innerText = player1.value + " you have X, you are the next to play";
+                };
+            };
+
+// determining the next player 
+            if (resulter.innerText == player1.value + " you are the latest winner") {
+                goodluck.innerText = player2.value + " you have O, you are the next to play";
+            } else if (resulter.innerText == player2.value + " you are the latest winner") {
+                goodluck.innerText = player1.value + " you have X, you are the next to play";
+            };
+        };
+        
+// changing goodluck to continue with the player name
+        const button = e=> {
+            if (goodluck.innerText == player1.value + " you have X, you are the next to play" && e.target.innerText !== "X" && e.target.innerText !== "O") {
+                goodluck.innerText = player2.value + " you have O, you are the next to play";
+            } else if (goodluck.innerText == player2.value + " you have O, you are the next to play" && e.target.innerText !== "X" && e.target.innerText !== "O") {
+                goodluck.innerText = player1.value + " you have X, you are the next to play";
+            };
+
+// player playing button
+            if (goodluck.innerText == player1.value + " you have X, you are the next to play" && e.target.innerText !== "X" && e.target.innerText !== "O") {
+                e.target.innerText = "O";
+            } else if (goodluck.innerText == player2.value + " you have O, you are the next to play" && e.target.innerText !== "X" && e.target.innerText !== "O") {
+               e.target.innerText = "X";
+            };
+
+// giving result for player 1
+            if (one.innerText === "X" && two.innerText === "X" && three.innerText === "X" ||
+            one.innerText === "X" && four.innerText === "X" && seven.innerText === "X" || 
+            four.innerText === "X" && five.innerText === "X" && six.innerText === "X" || 
+            seven.innerText === "X" && eight.innerText === "X" && nine.innerText == "X" || 
+            one.innerText === "X" && five.innerText === "X" && nine.innerText === "X" || 
+            three.innerText === "X" && five.innerText === "X" && seven.innerText === "X" || 
+            two.innerText === "X" && five.innerText === "X" && eight.innerText === "X" || 
+            three.innerText === "X" && six.innerText === "X" && nine.innerText === "X") {
+                ++resplay1.innerText;
+                goodluck.innerText = "Press 'Replay' to play again or Press 'End' to end it all";
+                resulter.innerText = player1.value + " you are the latest winner";
+            } 
+
+// giving result for player 2
+            else if (one.innerText === "O" && two.innerText === "O" && three.innerText === "O" || 
+            one.innerText === "O" && four.innerText === "O" && seven.innerText === "O" || 
+            four.innerText === "O" && five.innerText === "O" && six.innerText === "O" || 
+            seven.innerText === "O" && eight.innerText === "O" && nine.innerText === "O" || 
+            one.innerText === "O" && five.innerText === "O" && nine.innerText === "O" || 
+            three.innerText === "O" && five.innerText === "O" && seven.innerText === "O" || 
+            two.innerText === "O" && five.innerText === "O" && eight.innerText === "O" ||
+            three.innerText === "O" && six.innerText === "O" && nine.innerText === "O") {
+                ++resplay2.innerText;
+                goodluck.innerText = "Press 'Replay' to play again or Press 'End' to end it all";
+                resulter.innerText = player2.value + " you are the latest winner";
+            };
+// draw game
+            if (one.innerText !== "" && two.innerText !== "" && three.innerText !== "" && four.innerText !== "" && five.innerText !== "" && six.innerText !== "" && seven.innerText !== "" && eight.innerText !== "" && nine.innerText !== "" && goodluck.innerText !== "Press 'Replay' to play again or Press 'End' to end it all") {
+                resulter.innerText = "It's a draw";
+                goodluck.innerText = "Press 'Replay' to play again or Press 'End' to end it all";
+            };
+// disabling the play button
+            if (goodluck.innerText == "Press 'Replay' to play again or Press 'End' to end it all") {
+                one.disabled = true;
+                two.disabled = true;
+                three.disabled = true;
+                four.disabled = true;
+                five.disabled = true;
+                six.disabled = true;
+                seven.disabled = true;
+                eight.disabled = true;
+                nine.disabled = true;
+            };
+        };
+        
+// end button
+        const end = ()=> {
+            replayer();
+            play.innerText = "PLAY";
+            player1.value = "";
+            player2.value = "";
+            welcomenote.innerText = "Welcome enter your name to continue with the game";
+            goodluck.innerText = "Goodluck";
+            play1.innerText = "Player1";
+            play2.innerText = "Player2";
+            resplay1.innerText = 0;
+            resplay2.innerText = 0;
+            resulter.innerText = "RESULT";
+// enabling the play buttons
+            if (welcomenote.innerText == "Welcome enter your name to continue with the game" && goodluck.innerText == "Goodluck" && resulter.innerText == "RESULT") {
+                buttonFalse();
+            };
+        };
+
+// replay and end button to clear the game
+        const replayer = ()=> {
+            one.innerText = "";
+            two.innerText = "";
+            three.innerText = "";
+            four.innerText = "";
+            five.innerText = "";
+            six.innerText = "";
+            seven.innerText = "";
+            eight.innerText = "";
+            nine.innerText = "";
+        };
+
+// false button
+        const buttonFalse = ()=> {
+            one.disabled = false;
+            two.disabled = false;
+            three.disabled = false;
+            four.disabled = false;
+            five.disabled = false;
+            six.disabled = false;
+            seven.disabled = false;
+            eight.disabled = false;
+            nine.disabled = false;
+        };
+    </script>
+</body>
+</html>

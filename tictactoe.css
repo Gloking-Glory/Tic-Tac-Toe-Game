@@ -1,0 +1,131 @@
+#container {
+    background-image: url(istockphoto-961759.jpg);
+    border-radius: 5%;
+    height: 470pt;
+    margin-top: -10pt;
+    text-shadow: 0px 1px white;
+    width: 250pt;
+}
+
+h1 {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#container1 {
+    margin-top: -15pt;
+    background-color: rgb(8,200,214);
+    height: 120pt;
+    border: none;
+}
+
+h3 {
+    padding-top: 5pt;
+    font-size: medium;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#input {
+    text-align: center;
+}
+
+input {
+    background-color: rgb(173,242,239);
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10%;
+    height: 22pt;
+    width: 220pt;
+}
+#player2 {
+    margin-top: 5pt;
+}
+
+#playdiv {
+    text-align: center;
+}
+
+#play, #end {
+    border: none;
+    margin-top: 5pt;
+    border-radius: 25%;
+    background-color: chartreuse;
+    color: black;
+    font-family: sans-serif;
+    font-size: 1.3em;
+    font-weight: bolder;
+    width: 80pt;
+    height: 30pt;
+    line-height: 0;
+}
+
+h4 {
+    font-family: sans-serif;
+    margin-top: 3pt;
+    text-align: center;
+}
+
+#goodluck {
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: 550;
+    text-align: center;
+    margin-top: -5pt;
+}
+
+#buttondiv {
+    text-align: center;
+}
+
+button {
+    font-size: 40pt;
+    color: rgb(247,211,1);
+    background-color: rgb(13,30,49);
+    border: none;
+    border-radius: 25%;
+    height: 43pt;
+    width: 65pt;
+    line-height: 55pt;
+}
+
+#four, #five, #six {
+    margin-top: 5px;
+}
+#seven, #eight, #nine {
+    margin-top: 5px;
+}
+
+#playresult {
+    font-family: sans-serif;
+    font-size: large;
+    font-weight: 550;
+    margin-top: 10pt;
+    text-align: center;
+}
+
+#endbutton {
+    margin-top: -10px;
+    text-align: center;
+}
+
+#play1, #play2 {
+    font-family: sans-serif;
+    font-size: 1.3em;
+    font-weight: 750;
+}
+
+#resplay1, #resplay2 {
+    background-color: rgb(173,242,239);
+    border: none;
+    border-radius: 35%;
+    font-size: 1.5em;
+    width: 35pt;
+    height: 25pt;
+    color: black;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+}
